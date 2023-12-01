@@ -1,0 +1,39 @@
+﻿@model Lab06.MVC.BLL.DTO.RegisterDto 
+
+<h2>New user registration</h2>
+<form method="post" asp-controller="Account" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="LastName"></label><br />
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div>
+        <label asp-for="FirstMiddleName"></label><br />
+        <input asp-for="FirstMiddleName" />
+        <span asp-validation-for="FirstMiddleName"></span>
+    </div>
+    <div>
+        <label asp-for="EnrollmentDate"></label><br />
+        <input asp-for="EnrollmentDate" />
+        <span asp-validation-for="EnrollmentDate"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input type="password" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="PasswordConfirm"></label><br />
+        <input type="password" asp-for="PasswordConfirm" />
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+    <div>
+        <input class="btn btn-outline-primary" type="submit" value="Registration" />
+    </div>
+</form>

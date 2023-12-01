@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Lab06.MVC.DAL.Entities.StudentEntity>
+
+<h2>List of users</h2>
+<table class="table">
+
+    @foreach (var user in Model)
+    {
+        @if (!user.Email.StartsWith("admin"))
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    <a class="btn btn-outline-success" asp-action="Edit" asp-route-userid="@user.Id">Add</a>
+                    <a class="btn btn-outline-danger" asp-action="Edit" asp-route-userid="@user.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    }
+</table>

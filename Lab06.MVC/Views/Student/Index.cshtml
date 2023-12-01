@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Lab06.MVC.DAL.Entities.StudentEntity>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Students</h1>
+
+<p>
+    @if (User.IsInRole("admin"))
+    {
+        <a class="btn btn-outline-primary" asp-action="Create">Create New</a>
+    }
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a class="btn btn-outline-primary" asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table table-striped thead-dark table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Email</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Last Name</a>
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Enrollment Date</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (!item.Email.StartsWith("admin"))
+            {
+                <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMiddleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                </td>
+                <td>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    }
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-outline-warning" asp-action="ChangePassword" asp-route-id="@item.Id">Change Password</a>
+                    }
+                </td>
+                <td>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                            <button type="submit" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</button>
+                        </form>
+                    }
+                </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

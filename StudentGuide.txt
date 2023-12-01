@@ -1,0 +1,60 @@
+#Start App
+There is a Home tab on the main page, as well as the ability to Login or Register.
+
+	After initially launching the application, you can log in as an admin by entering
+the following email and password in the appropriate fields, then click Login
+Admin's email & password (email: admin@gmail.com, password: Qwerty19_!)
+
+	You can also register a new user by clicking the Registration button. Next, 
+enter your details and click Register.
+
+
+#Menu options - admin
+	For the admin, all application functions are available:
+creating / editing / viewing information / deleting users,
+courses and roles.
+
+	After logging in as an admin, you get immediately to the main menu, 
+Where the greeting messages are immediately displayed.
+
+All tabs and actions (Students, Courses, Roles) are available for the admin.
+
+	On the students tab, the admin can create a new user, search among all participants,
+finding the right student, you can return to the full list of all students with one 
+click. By clicking on the Mail, sort by mail field, anologically for the Surname and 
+Date of Receipt.
+	The admin can also edit the student's information or change his password or delete it.
+1. To edit information about a student, click Edit and change the values in the corresponding
+fields, then click save.
+2. To change the password, click on the Change Password button. In the window that opens,
+enter the old password and the new one, then click Save.
+3.In order to delete a user, simply click on the Delete button, and the user will be deleted.
+
+Anologically for the Courses tab.
+
+	On the Roles tab, the admin can click the Add Role button and add a new custom role.
+1. Click Add Role.
+2. In the window that opens, write a new role.
+3. Click Add.
+
+	On the Roles tab, the admin can click the List of Students button and add a role to a student.
+1. Click The List Of Students.
+2. In the window that opens, select the student to whom you want to add a new role.
+3. Select the role checkmark.
+4. Click Save.
+
+On the Roles tab, the admin can click Delete and delete a specific role.
+
+#Menu options - student
+	For the student, only the function of viewing information
+on the students and courses tab is available. Role tab not
+available.
+
+	After logging in as an admin, you get immediately to the main menu, 
+Where the greeting messages are immediately displayed.
+
+	The Student user can only view and search for information on the Students and Courses tabs. 
+The Roles tab is unavailable.
+
+
+
