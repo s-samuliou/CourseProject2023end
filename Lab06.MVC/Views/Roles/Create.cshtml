@@ -1,11 +1,20 @@
 ﻿@model string
 
-<div asp-validation-summary="All" class="text-danger"></div>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Add New Role</h2>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label for="name">New role</label>
-        <input name="name" class="form-control" />
+            <form asp-action="Create" method="post">
+                <div class="form-group">
+                    <label for="name">Role Name</label>
+                    <input name="name" class="form-control form-control-lg" />
+                </div>
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <button type="submit" class="btn btn-outline-primary btn-lg">Add</button>
+            </form>
+        </div>
     </div>
-    <button type="submit" class="btn btn-outline-primary">Add</button>
-</form>
+</div>

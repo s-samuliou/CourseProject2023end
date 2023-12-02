@@ -4,69 +4,81 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Details</h1>
 
-<div>
-    <h4>Student</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstMiddleName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FirstMiddleName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EnrollmentDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Enrollments)
-        </dt>
-        <dd class="col-sm-10">
-            <table class="table">
-                <tr>
-                    <th>Course Title</th>
-                    <th>Grade</th>
-                </tr>
-                @foreach (var item in Model.Enrollments)
+            <div>
+                <h4 class="card-title">Student</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Id)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.LastName)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.FirstMiddleName)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.FirstMiddleName)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.EnrollmentDate)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.EnrollmentDate)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Enrollments)
+                    </dt>
+                    <dd class="col-sm-9">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Course Title</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Enrollments)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Course.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Grade)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </dd>
+                </dl>
+            </div>
+
+            <div>
+                @if (User.IsInRole("admin"))
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Course.Title)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Grade)
-                        </td>
-                    </tr>
+                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
                 }
-            </table>
-    </dl>
-</div>
-<div>
-    @if (User.IsInRole("admin"))
-    {
-        <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
-    }
-    <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
+                <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
 </div>

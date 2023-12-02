@@ -1,39 +1,54 @@
-﻿@model Lab06.MVC.BLL.DTO.RegisterDto 
+﻿@model Lab06.MVC.BLL.DTO.RegisterDto
 
-<h2>New user registration</h2>
-<form method="post" asp-controller="Account" asp-action="Register">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-header">
+            <h2 class="text-center">Student Registration</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-controller="Account" asp-action="Register">
+                <div asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName">Last Name</label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FirstMiddleName">First/Middle Name</label>
+                    <input asp-for="FirstMiddleName" class="form-control" />
+                    <span asp-validation-for="FirstMiddleName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EnrollmentDate">Enrollment Date</label>
+                    <input asp-for="EnrollmentDate" class="form-control" />
+                    <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PasswordConfirm">Confirm Password</label>
+                    <input type="password" asp-for="PasswordConfirm" class="form-control" />
+                    <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input class="btn btn-outline-primary btn-lg" type="submit" value="Registration" />
+                </div>
+            </form>
+        </div>
     </div>
-    <div>
-        <label asp-for="LastName"></label><br />
-        <input asp-for="LastName" />
-        <span asp-validation-for="LastName"></span>
-    </div>
-    <div>
-        <label asp-for="FirstMiddleName"></label><br />
-        <input asp-for="FirstMiddleName" />
-        <span asp-validation-for="FirstMiddleName"></span>
-    </div>
-    <div>
-        <label asp-for="EnrollmentDate"></label><br />
-        <input asp-for="EnrollmentDate" />
-        <span asp-validation-for="EnrollmentDate"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label><br />
-        <input type="password" asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="PasswordConfirm"></label><br />
-        <input type="password" asp-for="PasswordConfirm" />
-        <span asp-validation-for="PasswordConfirm"></span>
-    </div>
-    <div>
-        <input class="btn btn-outline-primary" type="submit" value="Registration" />
-    </div>
-</form>
+</div>

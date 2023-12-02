@@ -4,14 +4,33 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <p>Hello @User.Identity.Name!</p>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, @User.Identity.Name!</h1>
+            <p class="lead">Welcome to the Student Portal - Your Gateway to Student Information.</p>
+            <hr class="my-4">
+            <p>Explore and manage student details with ease. Whether you're an administrator or a regular user, this platform empowers you to view and edit student data effortlessly.</p>
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <button class="btn btn-outline-primary btn-lg" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
 
-    <form method="post" asp-controller="Account" asp-action="Logout">
-        <input class="btn btn-outline-primary" type="submit" value="Logout" />
-    </form>
 }
 else
 {
-    <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Login">Login</a>
-    <a class="btn btn-outline-info" asp-controller="Account" asp-action="Register">Registration</a>
+    <div class="container mt-5">
+        <div class="card text-center" style="max-width: 400px; margin: auto;">
+            <div class="card-header">
+                <h2 class="card-title">Welcome!</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">Choose an action:</p>
+                <div class="btn-group" role="group" aria-label="User Actions">
+                    <a class="btn btn-outline-primary btn-lg" asp-controller="Account" asp-action="Login">Login</a>
+                    <a class="btn btn-outline-info btn-lg" asp-controller="Account" asp-action="Register">Registration</a>
+                </div>
+            </div>
+        </div>
+    </div>
 }

@@ -4,38 +4,47 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <h1 class="card-header">Details</h1>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Student.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Grade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Grade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Course)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Course.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Student)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Student.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
+        <div class="card-body">
+            <hr />
+
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Student.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Student.Email)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Grade)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Grade)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Course)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Course.Title)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Student)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Student.Id)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="card-footer">
+            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
+        </div>
+    </div>
 </div>

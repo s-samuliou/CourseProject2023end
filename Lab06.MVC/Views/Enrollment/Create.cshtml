@@ -4,36 +4,45 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="container mt-5">
+    <div class="card" style="max-width: 400px; margin: 0 auto;">
+        <h1 class="card-header">Create</h1>
 
-<h4>EnrollmentEntity</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+        <div class="card-body">
+            <h4 class="card-title">EnrollmentEntity</h4>
+            <hr />
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="StudentId" class="control-label">Student</label>
+                    <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label">Course</label>
+                    <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Grade" class="control-label">Grade</label>
+                    <input asp-for="Grade" class="form-control" />
+                    <span asp-validation-for="Grade" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-primary btn-block">Create</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer">
+            <div class="text-center">
+                <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
             </div>
-            <div class="form-group">
-                <label asp-for="CourseId" class="control-label"></label>
-                <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Grade" class="control-label"></label>
-                <input asp-for="Grade" class="form-control" />
-                <span asp-validation-for="Grade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-outline-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
