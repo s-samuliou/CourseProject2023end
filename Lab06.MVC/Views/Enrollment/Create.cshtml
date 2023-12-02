@@ -27,9 +27,17 @@
 
                 <div class="form-group">
                     <label asp-for="Grade" class="control-label">Grade</label>
-                    <input asp-for="Grade" class="form-control" />
+                    <select asp-for="Grade" class="form-control">
+                        <option value="">-- Select Grade --</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="F">F</option>
+                    </select>
                     <span asp-validation-for="Grade" class="text-danger"></span>
                 </div>
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-outline-primary btn-block">Create</button>

@@ -73,6 +73,26 @@
             </div>
 
             <div>
+                <h4 class="card-title">Average Grade</h4>
+                <hr />
+                @{
+                    var grades = Model.Enrollments.Select(e => e.Grade).ToList();
+                    double? averageGrade = grades.Any(g => g.HasValue)
+                        ? grades.Where(g => g.HasValue).Average(g => (int)g.Value)
+                        : (double?)null;
+                }
+
+                @if (averageGrade.HasValue)
+                {
+                    <p>Average Grade: @averageGrade.Value.ToString("F2")</p>
+                }
+                else
+                {
+                    <p>No grades available</p>
+                }
+            </div>
+
+            <div>
                 @if (User.IsInRole("admin"))
                 {
                     <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
